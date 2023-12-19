@@ -1932,32 +1932,6 @@ forever(function () {
     })
 })
 forever(function () {
-    if (boss_health == 2) {
-        myEnemy = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . f f f f f f f f f f . . . 
-            . . . d d f d d f d d d f . . . 
-            . . . . . d f . f . . f d . . . 
-            . . . . . . f f 1 1 f d . . . . 
-            . . f f f f f f f 1 d . . . . . 
-            . . d d d d f f f f f f f 1 . . 
-            . . . . . f f f f f d d d d . . 
-            . . . . f d d f d f . . . . . . 
-            . . . f d . . f . d f . . . . . 
-            . . . d . . . f . . d f . . . . 
-            . . . . . . . f . . . d . . . . 
-            . . . . . . . d . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `, SpriteKind.Enemy)
-        myEnemy.follow(mySprite, 30)
-        pause(10000)
-    } else {
-    	
-    }
-})
-forever(function () {
     if (boss_d0wn == 1) {
         animation.runImageAnimation(
         Boss1,
