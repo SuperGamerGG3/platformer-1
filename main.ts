@@ -775,10 +775,7 @@ function startNextLevel () {
         scene.setBackgroundColor(13)
         tiles.setCurrentTilemap(tilemap`level52`)
     } else {
-        music.stopAllSounds()
-        scene.setBackgroundColor(9)
-        tiles.setTilemap(tilemap`level18`)
-        music.play(music.createSong(hex`00780004080c0100001c00010a006400f40164000004000000000000000000000000000500000402010000080001240800100001241000180001251800200001292000280001252800300001223000380001203800400001224000480001244800500001255000580001245800600001206000680001206800700001207000780001248800900001249800a0000127a800b0000129b000b800012ac000c8000127c800d0000127d000d8000125d800e0000124e000e800012ae800f0000125f000f8000120f8000001012400010801012508011001012710011801012918012001012920012801012028013001012430013801012738014001012a40014801012c48015001012c50015801012a580160010127600168010124680170010120700178010120780180010120`), music.PlaybackMode.LoopingInBackground)
+        boss_battle()
     }
     sprites.destroyAllSpritesOfKind(SpriteKind.Player)
     mySprite = sprites.create(img`
@@ -864,6 +861,9 @@ function startNextLevel () {
         myEnemy.follow(mySprite, 30)
     }
 }
+function boss_battle () {
+    mySprite2 = sprites.create(assets.image`boss1`, SpriteKind.Player)
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile6`, function (sprite, location) {
     tiles.setTileAt(location, assets.tile`transparency16`)
     info.changeScoreBy(1)
@@ -894,6 +894,9 @@ function Bonus_Level () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile17`, function (sprite, location) {
     mySprite.vy += -300
 })
+function end_game () {
+	
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile26`, function (sprite, location) {
     animation.runImageAnimation(
     mySprite,
@@ -1006,6 +1009,7 @@ controller.combos.attachCombo("udlrudlrababab", function () {
     currentLevel = 17
     startNextLevel()
 })
+let mySprite2: Sprite = null
 let currentLevel = 0
 let myEnemy: Sprite = null
 let mySprite: Sprite = null
